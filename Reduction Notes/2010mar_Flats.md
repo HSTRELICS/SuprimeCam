@@ -16,11 +16,11 @@ mkdir V
 
 ## Run SDFRED flat pipeline
 ### Link to the raw data
-There are 1000 separate exposures for the skyflat.
+There are 99 separate exposures for the skyflat.
 
 ```
 cd V
-ln -s ../../../rawdata/2010mar/flats/V/SUPA*.fits .
+ln -s ../../../rawdata/2010mar/V/SUPA*.fits .
 ```
 ### rename the data files in each band folder
 ```
@@ -61,7 +61,7 @@ mkdir 2010mar
 cd 2010mar
 mkdir V
 cd V
-ln -s ../../../rawdata/2010mar/flats/V/SUPA*.fits .
+ln -s ../../../rawdata/2010mar/V/SUPA*.fits .
 ls -1 SUPA*.fits > namechange.lis
 namechange.csh namechange.lis
 ls -1 H*.fits > ovserscansub.lis

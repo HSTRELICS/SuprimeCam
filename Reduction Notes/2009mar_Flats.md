@@ -93,3 +93,37 @@ rm ssbtmp*
 rm mnah*
 rm blank*
 ```
+
+# The same as above but just the commands for easy running
+```
+cd /sandbox/subaru/flats
+mkdir 2009mar
+cd 2009mar
+mkdir V
+cd V
+ln -s ../../../rawdata/2009mar/V/SUPA*.fits .
+ls -1 SUPA*.fits > namechange.lis
+namechange.csh namechange.lis
+ls -1 H*.fits > ovserscansub.lis
+overscansub.csh ovserscansub.lis
+ls -1 To_RH*.fits > mkflat.lis
+mask_mkflat_HA.csh mkflat.lis skyflat_V 0.5 1.3
+ds9 -mosaic wcs skyflat*.fits
+```
+
+# The same as above but just the commands for easy running
+```
+cd /sandbox/subaru/flats
+mkdir 2009mar
+cd 2009mar
+mkdir i
+cd i
+ln -s ../../../rawdata/2009mar/i/SUPA*.fits .
+ls -1 SUPA*.fits > namechange.lis
+namechange.csh namechange.lis
+ls -1 H*.fits > ovserscansub.lis
+overscansub.csh ovserscansub.lis
+ls -1 To_RH*.fits > mkflat.lis
+mask_mkflat_HA.csh mkflat.lis skyflat_i 0.5 1.3
+ds9 -mosaic wcs skyflat*.fits
+```
