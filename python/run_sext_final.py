@@ -1,7 +1,10 @@
 '''
 A script that runs SExtractor on the final combined images.
 '''
-import pyfits as pf
+try:
+   from astropy.io import fits as pf
+except:
+   import pyfits as pf
 import sys
 import os
 import argparse
