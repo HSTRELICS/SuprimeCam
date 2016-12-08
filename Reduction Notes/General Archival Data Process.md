@@ -36,18 +36,22 @@ Are you OK? click OK
 # Flats
 ## First Check JVO for available flats
 
-Download the flats from JVO (http://jvo.nao.ac.jp/portal/subaru/spcam.do) for the associated band and date.
+Download the flats from JVO (http://jvo.nao.ac.jp/portal/subaru/spcam.do) for
+the associated band and date.
 
-There is one file for each of the SuprimeCam CCD’s. Make sure to download flats for each chip using a consistent number of total exposures.
+There is one file for each of the SuprimeCam CCD’s. Make sure to download flats
+for each chip using a consistent number of total exposures.
 
 The downloaded files have names like: SUPR096015DC08F530.fits
 
-I ran the following two commands to rename these files to something like: H050928object055_w67c1.fits which includes the ccd name.
+I ran the following two commands to rename these files to something like:
+H050928object055_w67c1.fits which includes the ccd name.
 
 ls -1 SUP*.fits > namechange.lis
 namechange.csh namechange.lis
 
-After that I replace the H050928object055 portion of the name with skyflat_i or skyflat_[band] where [band] is the corresponding band.
+After that I replace the H050928object055 portion of the name with skyflat_i or
+skyflat_[band] where [band] is the corresponding band.
 
 for filename in H050928object055*; do echo mv $filename ${filename//H050928object055/skyflat_i}; done | /bin/bash
 
@@ -56,9 +60,9 @@ Perform an advanced search of the Subaru SMOKA archive:
 
 http://smoka.nao.ac.jp/fssearch.jsp
 
-In the `Observation Data` box get all the data within ~ +/-30 days of observation,
-e.g. if you want to create a flat for observations taken on 2009-Sep-20 type:
-2009-09-01..2009-10-31
+In the `Observation Date` box get all the data within ~ +/-30 days of
+observation, e.g. if you want to create a flat for observations taken on
+2009-Sep-20 type: 2009-09-01..2009-10-31
 
 In the `Exp Time` box type >70 to get rid of focus frames.
 
